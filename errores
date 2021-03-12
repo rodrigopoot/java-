@@ -1,0 +1,54 @@
+package errores.rodrigo;
+
+import static java.lang.Math.abs;
+import java.util.Scanner;
+
+public class ERRORESRODRIGO {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+
+     Scanner teclado = new Scanner(System.in);
+     int Z,W;
+     System.out.println("Ponga la cantidad del valor real");
+     Z=teclado.nextInt();
+     System.out.println("Ponga la cantidad del valor aproximado");
+     W=teclado.nextInt();
+     errores e1 = new errores(Z,W);
+System.out.println("ºººººººººººººººººººººººº*****************ºººººººººººººººººººººººººººº");
+     System.out.println("Para un error donde el valor real es "+Z+" y el aproximado es "+W);
+     System.out.println("El valor de un error absoluto es: "+e1.ErrorA());
+     System.out.println("El valor de un error relativo es: "+e1.ErrorR());
+     System.out.println("El valor de un error relativo porcentual es es: "+e1.ErrorRP()+"%");
+    }
+    
+}
+class errores {
+private int Real, Aproximado;
+double e,e_abs,er,er_abs,erp,erp_abs;
+
+public errores (int a, int b){
+Real=a;
+Aproximado=b;
+}
+public double ErrorA(){
+    e=(Real-Aproximado);
+    e_abs= abs(e);
+  return e_abs;  
+}
+public double ErrorR(){
+er=e/Real;
+er_abs= abs(er);
+return er_abs;
+}
+public double ErrorRP(){
+erp=er*100;
+erp_abs = abs(erp);
+return erp_abs;
+}
+}
+    
+    
